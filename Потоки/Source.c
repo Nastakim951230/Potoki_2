@@ -35,14 +35,57 @@ int timers(long int t)
 		}
 		if (sec == 0)
 		{
-			min--;
-			sec = 59;
 			if (min == 0)
 			{
-				hours--;
-				min = 59;
+				sec = 59;
+				if (min == 0)
+				{
+					if (hours == 0)
+					{
+						if (min == 0)
+						{
+							min = 0;
+						}
+						else
+						{
+							min = 59;
+						}
+					}
+					else
+					{
+						hours--;
+						min = 59;
+					}
+			
 
+				}
+				
 			}
+			else
+			{
+				min--;
+				sec = 59;
+				if (min == 0)
+				{
+					if (hours == 0)
+					{
+						if (min == 0)
+						{
+							min = 0;
+						}
+						else
+						{
+							min = 59;
+						}
+					}
+					else
+					{
+						hours--;
+						min = 59;
+					}
+				}
+			}
+			
 		}
 		system("cls");
 		printf_s("%d:%d:%d\n", hours, min, sec);
@@ -106,7 +149,7 @@ int main()
 	DWORD timess1 = 0;
 	DWORD timess2 = 0;
 	long int ttime;
-	printf_s("Выберите режим работы\n 1: Пауза\n 2: секундомер\n 3: часы\n 4: таймер\n 5: настройка времени\n 6: Снятие паузы");
+	printf_s("Выберите режим работы\n 1: Пауза\n 2: секундомер\n 3: часы\n 4: таймер\n 5: настройка времени\n 6: Снятие паузы\n");
 	while (1)
 	{
 		scanf_s("%d", &p);
